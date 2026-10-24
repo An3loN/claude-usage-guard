@@ -1,0 +1,11 @@
+{
+  "name": "usage-guard",
+  "version": "1.0.0",
+  "description": "Pauses or defers token-heavy work when Claude plan usage reaches 90%; light tasks keep running.",
+  "author": {
+    "name": "An3loN"
+  },
+  "homepage": "https://github.com/An3loN/claude-usage-guard",
+  "repository": "https://github.com/An3loN/claude-usage-guard",
+  "keywords": ["usage", "limits", "rate-limit", "hooks"]
+}

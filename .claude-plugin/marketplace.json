@@ -1,0 +1,19 @@
+{
+  "name": "usage-guard-tools",
+  "owner": {
+    "name": "An3loN"
+  },
+  "metadata": {
+    "description": "Claude Code tools for staying within Claude plan limits"
+  },
+  "plugins": [
+    {
+      "name": "usage-guard",
+      "source": "./plugins/usage-guard",
+      "description": "Pauses or defers token-heavy work when Claude plan usage reaches 90%; light tasks keep running.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "keywords": ["usage", "limits", "rate-limit", "hooks"]
+    }
+  ]
+}

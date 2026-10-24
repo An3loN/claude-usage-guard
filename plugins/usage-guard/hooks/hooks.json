@@ -1,0 +1,42 @@
+{
+  "description": "usage-guard: defers heavy prompts and pauses heavy tasks at 90% of the Claude plan limit",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/usage-guard.js\" prompt",
+            "timeout": 21600,
+            "statusMessage": "usage-guard: checking plan limits"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/usage-guard.js\" pre",
+            "timeout": 21600,
+            "statusMessage": "usage-guard: waiting for the plan limit to reset"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/usage-guard.js\" post",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
